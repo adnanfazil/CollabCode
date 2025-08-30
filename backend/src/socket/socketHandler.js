@@ -269,18 +269,27 @@ const initializeSocketHandlers = (io) => {
         // Optional: Save changes to database (for auto-save)
         if (file.project.settings?.autoSave) {
           logger.info(`💾 Auto-save enabled: Updating file content for ${fileId}`);
-          
+
           // Update file content with the new changes
           if (changes && changes.length > 0 && changes[0].text !== undefined) {
             const newContent = changes[0].text;
             logger.info(`💾 Updating file content from ${file.content?.length || 0} to ${newContent.length} characters`);
-            
+
             file.content = newContent;
             file.metadata.lastEditedBy = socket.user._id;
             file.metadata.lastEditedAt = new Date();
             await file.save();
-            
+
             logger.info(`💾 Auto-save completed for file ${fileId} - New content: "${newContent.substring(0, 200)}${newContent.length > 200 ? '...' : ''}"}`);
+
+            // Sync updated file to container filesystem
+            const { syncProjectToDisk } = require('../services/fileSync');
+            try {
+              await syncProjectToDisk(projectId);
+              logger.info(`🔄 File synced to container filesystem for project ${projectId}`);
+            } catch (syncError) {
+              logger.error(`❌ Failed to sync file to container:`, syncError);
+            }
           }
         }
         
@@ -648,14 +657,58 @@ const handleTerminalCommands = (socket, io) => {
   // Handle terminal command execution
   socket.on('terminal-command', async (data) => {
     try {
-      const { command } = data;
+      const { command, projectId } = data;
       logger.debug(`🖥️ Terminal Command: ${command.trim()}`);
-      
-      const success = containerManager.execCommand(socket.id, command);
-      if (!success) {
+
+      // Debug: List all sessions before attempting command execution
+      containerManager.debugListSessions();
+
+      let success = containerManager.execCommand(socket.id, command);
+
+      // If no session exists, try to recreate it automatically
+      if (!success && projectId) {
+        logger.warn(`🔄 No session found for socket ${socket.id}, attempting to recreate session for project ${projectId}`);
+
+        const result = await containerManager.createSession(
+          socket.id,
+          projectId,
+          // onOutput callback
+          (output) => {
+            socket.emit('terminal-output', { output, type: 'stdout' });
+          },
+          // onError callback
+          (error) => {
+            socket.emit('terminal-output', { output: error, type: 'stderr' });
+          },
+          // onPreview callback
+          (previewData) => {
+            socket.emit('terminal-preview', previewData);
+            logger.info(`🌐 Preview URL available: ${previewData.previewUrl}`);
+          }
+        );
+
+        if (result.success) {
+          logger.info(`✅ Session recreated successfully for socket ${socket.id}`);
+          socket.emit('terminal-ready', {
+            containerId: result.containerId,
+            port: result.port,
+            sessionType: result.sessionType || 'container'
+          });
+
+          // Try the command again
+          setTimeout(() => {
+            success = containerManager.execCommand(socket.id, command);
+            if (!success) {
+              socket.emit('terminal-error', { error: 'Failed to execute command after session recreation' });
+            }
+          }, 2000);
+        } else {
+          socket.emit('terminal-error', { error: 'Failed to recreate terminal session' });
+        }
+      } else if (!success) {
         socket.emit('terminal-error', { error: 'No active terminal session' });
       }
-      
+
     } catch (error) {
       logger.error(`💥 Terminal Command Error:`, error);
       socket.emit('terminal-error', { error: 'Failed to execute command' });

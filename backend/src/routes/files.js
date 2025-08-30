@@ -333,6 +333,15 @@ router.put('/:id', protect, [
       }];
 
       socketService.broadcastFileChange(project._id, updatedFile._id, changes, req.user);
+
+      // Sync updated file to container filesystem
+      const { syncProjectToDisk } = require('../services/fileSync');
+      try {
+        await syncProjectToDisk(project._id);
+        logger.info(`🔄 File synced to container filesystem for project ${project._id}`);
+      } catch (syncError) {
+        logger.error(`❌ Failed to sync file to container:`, syncError);
+      }
     }
 
     res.status(200).json({

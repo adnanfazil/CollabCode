@@ -1287,3 +1287,231 @@
     '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:807:7',
   timestamp: '2025-08-29 17:06:01'
 }
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:20:14'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:25:09'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:28:00'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:28:01'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:28:07'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:28:10'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b75a8c39733d2fdbc23e: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:33:54'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b75a8c39733d2fdbc23e: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:33:57'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b75a8c39733d2fdbc23e: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:33:59'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b75a8c39733d2fdbc23e: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:34:08'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:37:37'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:37:39'
+}
+{
+  message: '🐳 Docker daemon error: docker: Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint collabcode-68b2b2326a3dab11194ba0b2-1756543070449 (433adc7cac3001d8fa053ba8047d4b1dc1cf9ffa8fa8eb5fe5ddfba8d45ad6a1): Bind for 0.0.0.0:8081 failed: port is already allocated\n' +
+    '\n' +
+    "Run 'docker run --help' for more information",
+  level: 'error',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 13:37:51'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:39:09'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:39:10'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 13:40:54'
+}
+{
+  message: '🐳 Docker daemon error: docker: Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint collabcode-68b2b2326a3dab11194ba0b2-1756543292405 (2b818982f97ea7686a1002424e24f3aec72623f0f4e5f61f828d8400f38aef21): Bind for 0.0.0.0:8081 failed: port is already allocated\n' +
+    '\n' +
+    "Run 'docker run --help' for more information",
+  level: 'error',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 13:41:33'
+}
+{
+  message: '🐳 Docker daemon error: docker: Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint collabcode-68b2b2326a3dab11194ba0b2-1756543574544 (459820f6cc5f2eae721b5abc40604b8206e2c52dff303f8f994bc94b3ca99e84): Bind for 0.0.0.0:8081 failed: port is already allocated\n' +
+    '\n' +
+    "Run 'docker run --help' for more information",
+  level: 'error',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 13:46:15'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 16:01:01'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 16:01:33'
+}

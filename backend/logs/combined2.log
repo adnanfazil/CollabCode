@@ -1,0 +1,295 @@
+{
+  message: '🔐 WebSocket Authentication Attempt: Socket ID pol3cIQK6wx-pHuSAAAB from IP ::ffff:127.0.0.1',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: '✅ WebSocket Auth Success: User adnan99@gmail.com (Adnan Fazil) authenticated for socket pol3cIQK6wx-pHuSAAAB',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: '🔌 WebSocket Connection Established: adnan99@gmail.com (Socket ID: pol3cIQK6wx-pHuSAAAB)',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: '📊 Total active connections: 1',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: '👤 User Adnan Fazil (adnan99@gmail.com) added to active connections',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37',
+  level: 'info',
+  message: '🏓 Ping received from adnan99@gmail.com:'
+}
+{
+  message: 'GET /api/projects/68b2b2326a3dab11194ba0b2 - ::1',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: 'GET /api/files/project/68b2b2326a3dab11194ba0b2 - ::1',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: 'GET /api/files/project/68b2b2326a3dab11194ba0b2 - ::1',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: 'GET /api/projects/68b2b2326a3dab11194ba0b2 - ::1',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: 'GET /api/files/68b2b23d6a3dab11194ba0cf - ::1',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: 'GET /api/files/68b2b23d6a3dab11194ba0cf - ::1',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  service: 'collabcode-backend',
+  projectId: '68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  message: '🚪 Join Project Request: User adnan99@gmail.com attempting to join project',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: '🏠 Room Joined: User adnan99@gmail.com joined room project:68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: '🆕 New Project Room Created: project:68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: '👥 Project Room Status: 1 users in project 68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: '👥 Users in room: Adnan Fazil',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: '📢 Broadcasting user-joined event for adnan99@gmail.com to project 68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: '📤 Sent project-joined confirmation to adnan99@gmail.com',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: '✅ Join Project Success: User adnan99@gmail.com successfully joined project 68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:37'
+}
+{
+  message: '🖥️ Terminal Create: User adnan99@gmail.com creating session for project 68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:41'
+}
+{
+  message: '🐳 Creating container session for project 68b2b2326a3dab11194ba0b2, socket pol3cIQK6wx-pHuSAAAB',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:41'
+}
+{
+  message: '🖥️ Terminal Create: User adnan99@gmail.com creating session for project 68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:42'
+}
+{
+  message: '⚠️ Terminal creation already in progress for socket pol3cIQK6wx-pHuSAAAB, ignoring duplicate request',
+  level: 'warn',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:42'
+}
+{
+  message: '🐳 Docker version: Docker version 28.0.1, build 068a01e',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:42'
+}
+{
+  message: '🐳 Docker is available and working properly',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:43'
+}
+{
+  message: '📂 Starting file sync for project 68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:43'
+}
+{
+  message: '📂 File sync completed: 2/2 files synced',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:43'
+}
+{
+  message: '✅ Terminal session created for adnan99@gmail.com in project 68b2b2326a3dab11194ba0b2 (container)',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:43'
+}
+{
+  message: '✅ Container process spawned: collabcode-68b2b2326a3dab11194ba0b2-1756551583393',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:43'
+}
+{
+  message: '🐳 Docker version check timed out',
+  level: 'warn',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:47'
+}
+{
+  message: 'POST /api/chatbot/session - ::1',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:51'
+}
+{
+  message: 'POST /api/chatbot/session - ::1',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:51'
+}
+{
+  message: '🐳 Docker test timed out - daemon may not be running',
+  level: 'warn',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 15:59:57'
+}
+{
+  message: 'PUT /api/files/68b2b23d6a3dab11194ba0cf - ::1',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 16:01:01'
+}
+{
+  message: 'File updated: index.js by adnan99@gmail.com',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 16:01:01'
+}
+{
+  message: '📡 Broadcasting file update via WebSocket: file 68b2b23d6a3dab11194ba0cf in project 68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 16:01:01'
+}
+{
+  message: '📂 Starting file sync for project 68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 16:01:01'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 16:01:01'
+}
+{
+  message: '🔄 File synced to container filesystem for project 68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 16:01:01'
+}
+{
+  message: 'POST /api/chatbot/query - ::1',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 16:01:08'
+}
+{
+  message: 'PUT /api/files/68b2b23d6a3dab11194ba0cf - ::1',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 16:01:33'
+}
+{
+  message: 'File updated: index.js by adnan99@gmail.com',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 16:01:33'
+}
+{
+  message: '📡 Broadcasting file update via WebSocket: file 68b2b23d6a3dab11194ba0cf in project 68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 16:01:33'
+}
+{
+  message: '📂 Starting file sync for project 68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 16:01:33'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-30 16:01:33'
+}
+{
+  message: '🔄 File synced to container filesystem for project 68b2b2326a3dab11194ba0b2',
+  level: 'info',
+  service: 'collabcode-backend',
+  timestamp: '2025-08-30 16:01:33'
+}

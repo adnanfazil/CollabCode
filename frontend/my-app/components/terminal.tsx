@@ -25,6 +25,7 @@ export default function Terminal({ projectId, className = "", height = "300px", 
   const [sessionReady, setSessionReady] = useState(false)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const [containerId, setContainerId] = useState<string | null>(null)
+  const [scrollPosition, setScrollPosition] = useState({ current: 0, total: 0 })
   const { socket } = useSocket()
   const { user } = useAuth()
   // Keep a ref in sync with sessionReady to avoid stale closure inside onData
@@ -66,7 +67,11 @@ export default function Terminal({ projectId, className = "", height = "300px", 
       },
       allowTransparency: true,
       convertEol: true,
-      scrollback: 1000
+      scrollback: 10000,  // Increased scrollback buffer for better scrolling
+      scrollSensitivity: 3,  // Enhanced scroll sensitivity
+      fastScrollSensitivity: 5,  // Fast scroll with Shift+scroll
+      scrollOnUserInput: true,  // Auto-scroll to bottom on user input
+      altClickMovesCursor: true  // Alt+click to move cursor
     })
 
     // Create and load addons
@@ -88,9 +93,24 @@ export default function Terminal({ projectId, className = "", height = "300px", 
     // Fit terminal to container
     fitAddon.fit()
     
+    // Track scroll position
+    terminal.onScroll(() => {
+      const buffer = terminal.buffer.active
+      const viewport = terminal.rows
+      const scrollback = buffer.length
+      const currentLine = buffer.viewportY + viewport
+      
+      setScrollPosition({
+        current: Math.max(0, currentLine - viewport),
+        total: Math.max(0, scrollback - viewport)
+      })
+    })
+    
     // Welcome message
     terminal.writeln('\x1b[32mCollabCode Terminal (Container Runtime)\x1b[0m')
     terminal.writeln('Initializing container session...\r\n')
+    terminal.writeln('\x1b[36mScrolling: Use mouse wheel, Page Up/Down, or Ctrl+Home/End\x1b[0m')
+    terminal.writeln('\x1b[36mInterrupt: Press Ctrl+C to stop running processes\x1b[0m\r\n')
     
     // Handle terminal input
     let currentLine = ''
@@ -105,7 +125,8 @@ export default function Terminal({ projectId, className = "", height = "300px", 
           if (sessionReadyRef.current) {
             // Send command to container only when session is ready
             socket.emit('terminal-command', {
-              command: currentLine.trim()
+              command: currentLine.trim(),
+              projectId: projectId
             })
           }
         }
@@ -115,16 +136,81 @@ export default function Terminal({ projectId, className = "", height = "300px", 
           currentLine = currentLine.slice(0, -1)
           terminal.write('\b \b')
         }
-      } else if (data === '\u0003') { // Ctrl+C
+      } else if (data === '\u0003') { // Ctrl+C - Interrupt current process
         terminal.write('^C\r\n')
         if (sessionReadyRef.current) {
           socket.emit('terminal-interrupt')
         }
         currentLine = ''
+      } else if (data === '\u0004') { // Ctrl+D - EOF signal
+        if (sessionReadyRef.current) {
+          socket.emit('terminal-command', { command: 'exit' })
+        }
+      } else if (data === '\u001b[A') { // Up arrow - command history (future enhancement)
+        // Could implement command history here
+      } else if (data === '\u001b[B') { // Down arrow - command history (future enhancement)
+        // Could implement command history here
       } else {
         // Regular character input
         currentLine += data
         terminal.write(data)
+      }
+    })
+    
+    // Add keyboard shortcuts for terminal navigation
+    terminal.onKey(({ key, domEvent }) => {
+      const ev = domEvent
+      
+      // Ctrl+Shift+C: Copy selection
+      if (ev.ctrlKey && ev.shiftKey && ev.code === 'KeyC') {
+        ev.preventDefault()
+        const selection = terminal.getSelection()
+        if (selection) {
+          navigator.clipboard.writeText(selection)
+        }
+      }
+      
+      // Ctrl+Shift+V: Paste from clipboard
+      if (ev.ctrlKey && ev.shiftKey && ev.code === 'KeyV') {
+        ev.preventDefault()
+        navigator.clipboard.readText().then(text => {
+          if (text && sessionReadyRef.current) {
+            // Write pasted text to terminal
+            terminal.write(text)
+            currentLine += text
+          }
+        })
+      }
+      
+      // Ctrl+L: Clear terminal
+      if (ev.ctrlKey && ev.code === 'KeyL') {
+        ev.preventDefault()
+        terminal.clear()
+        if (sessionReadyRef.current) {
+          terminal.write('$ ')
+        }
+      }
+      
+      // Page Up/Down for scrolling
+      if (ev.code === 'PageUp') {
+        ev.preventDefault()
+        terminal.scrollPages(-1)
+      }
+      
+      if (ev.code === 'PageDown') {
+        ev.preventDefault()
+        terminal.scrollPages(1)
+      }
+      
+      // Ctrl+Home/End for scroll to top/bottom
+      if (ev.ctrlKey && ev.code === 'Home') {
+        ev.preventDefault()
+        terminal.scrollToTop()
+      }
+      
+      if (ev.ctrlKey && ev.code === 'End') {
+        ev.preventDefault()
+        terminal.scrollToBottom()
       }
     })
     
@@ -206,17 +292,45 @@ export default function Terminal({ projectId, className = "", height = "300px", 
     }
   }, [socket, sessionReady])
 
-  // Handle window resize
+  // Handle window resize and layout changes
   useEffect(() => {
     const handleResize = () => {
-      if (fitAddonRef.current) {
-        fitAddonRef.current.fit()
+      if (fitAddonRef.current && xtermRef.current) {
+        // Small delay to ensure DOM has updated
+        setTimeout(() => {
+          fitAddonRef.current?.fit()
+        }, 10)
       }
     }
 
     window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    
+    // Create ResizeObserver to watch for container size changes
+    let resizeObserver: ResizeObserver | null = null
+    if (terminalRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        handleResize()
+      })
+      resizeObserver.observe(terminalRef.current)
+    }
+    
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      if (resizeObserver) {
+        resizeObserver.disconnect()
+      }
+    }
   }, [])
+
+  // Ensure terminal fits when it becomes visible or layout changes
+  useEffect(() => {
+    if (fitAddonRef.current && xtermRef.current && terminalRef.current) {
+      // Use requestAnimationFrame to ensure DOM is fully rendered
+      requestAnimationFrame(() => {
+        fitAddonRef.current?.fit()
+      })
+    }
+  })
 
   // Handle terminal stop
   const handleStopTerminal = () => {
@@ -233,7 +347,7 @@ export default function Terminal({ projectId, className = "", height = "300px", 
   }
 
   return (
-    <div className={`terminal-container ${className}`} style={{ height }}>
+    <div className={`terminal-container ${className}`} style={{ height, maxHeight: '80vh', resize: 'vertical', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
       <div className="terminal-header bg-gray-800 text-white px-3 py-2 text-sm flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -243,6 +357,11 @@ export default function Terminal({ projectId, className = "", height = "300px", 
           {containerId && (
             <span className="text-xs text-gray-400 ml-2">
               ({containerId.slice(0, 8)})
+            </span>
+          )}
+          {scrollPosition.total > 0 && (
+            <span className="text-xs text-gray-400 ml-4">
+              Scroll: {scrollPosition.current}/{scrollPosition.total}
             </span>
           )}
         </div>
@@ -286,8 +405,11 @@ export default function Terminal({ projectId, className = "", height = "300px", 
         tabIndex={0}
         onClick={() => xtermRef.current?.focus()}
         style={{ 
-          height: 'calc(100% - 40px)',
-          backgroundColor: '#1e1e1e'
+          flex: 1,
+          minHeight: 0,
+          backgroundColor: '#1e1e1e',
+          overflow: 'hidden',
+          position: 'relative'
         }}
       />
     </div>

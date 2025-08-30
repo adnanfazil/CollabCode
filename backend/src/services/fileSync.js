@@ -152,6 +152,106 @@ async function resolveFolderPath(folderId, projectId) {
 }
 
 /**
+ * Syncs files from container filesystem back to database
+ * @param {string} projectId - The project ID to sync
+ * @returns {Promise<{success: boolean, newFiles: number, error?: string}>}
+ */
+async function syncProjectFromDisk(projectId) {
+  try {
+    logger.info(`📥 Starting reverse file sync for project ${projectId}`);
+
+    const projectDir = path.join(process.cwd(), 'temp', 'projects', projectId);
+
+    // Check if directory exists
+    try {
+      await fs.access(projectDir);
+    } catch (error) {
+      return { success: true, newFiles: 0 };
+    }
+
+    // Get all files from filesystem
+    const filesOnDisk = await getAllFilesRecursive(projectDir);
+
+    // Get existing files from database
+    const existingFiles = await File.find({
+      project: projectId,
+      type: 'file',
+      isDeleted: false
+    }).select('name path');
+
+    const existingPaths = new Set(existingFiles.map(f => f.path || f.name));
+    let newFilesCount = 0;
+
+    // Find new files that don't exist in database
+    for (const filePath of filesOnDisk) {
+      const relativePath = path.relative(projectDir, filePath);
+      const normalizedPath = relativePath.replace(/\\/g, '/'); // Normalize path separators
+
+      if (!existingPaths.has(normalizedPath) && !existingPaths.has(path.basename(filePath))) {
+        try {
+          // Read file content
+          const content = await fs.readFile(filePath, 'utf8');
+
+          // Create new file in database
+          await File.create({
+            name: path.basename(filePath),
+            content,
+            type: 'file',
+            path: normalizedPath,
+            project: projectId,
+            metadata: {
+              lastEditedBy: null, // System created
+              createdInContainer: true
+            }
+          });
+
+          newFilesCount++;
+          logger.info(`📥 Synced new file from container: ${normalizedPath}`);
+        } catch (fileError) {
+          logger.error(`❌ Failed to sync file ${relativePath}:`, fileError);
+        }
+      }
+    }
+
+    logger.info(`📥 Reverse sync completed: ${newFilesCount} new files synced`);
+    return { success: true, newFiles: newFilesCount };
+
+  } catch (error) {
+    logger.error(`❌ Failed to sync project from disk:`, error);
+    return { success: false, error: error.message, newFiles: 0 };
+  }
+}
+
+/**
+ * Gets all files recursively from a directory
+ * @param {string} dirPath - Directory path
+ * @returns {Promise<string[]>} Array of file paths
+ */
+async function getAllFilesRecursive(dirPath) {
+  const files = [];
+
+  async function scanDirectory(currentPath) {
+    const entries = await fs.readdir(currentPath, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const fullPath = path.join(currentPath, entry.name);
+
+      if (entry.isDirectory()) {
+        // Skip node_modules and other common directories
+        if (!['node_modules', '.git', '.next', 'dist', 'build'].includes(entry.name)) {
+          await scanDirectory(fullPath);
+        }
+      } else if (entry.isFile()) {
+        files.push(fullPath);
+      }
+    }
+  }
+
+  await scanDirectory(dirPath);
+  return files;
+}
+
+/**
  * Cleans up project directory by removing it entirely
  * @param {string} projectId - Project ID
  * @returns {Promise<boolean>} Success status
@@ -170,5 +270,6 @@ async function cleanupProjectDirectory(projectId) {
 
 module.exports = {
   syncProjectToDisk,
+  syncProjectFromDisk,
   cleanupProjectDirectory
 };
