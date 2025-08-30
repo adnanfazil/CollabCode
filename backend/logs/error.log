@@ -1,0 +1,1289 @@
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:92:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-05 10:56:33'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: 'Authentication error: invalid signature',
+  level: 'error',
+  stack: 'JsonWebTokenError: invalid signature\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:171:19\n' +
+    '    at getSecret (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:97:14)\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:101:10)\n' +
+    '    at protect (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\middleware\\auth.js:25:25)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-08-05 12:46:02'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: javascript'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: javascript',
+  stack: 'MongoServerError: language override unsupported: javascript\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 12:46:24'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: javascript'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: javascript',
+  stack: 'MongoServerError: language override unsupported: javascript\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 12:49:38'
+}
+{
+  service: 'collabcode-backend',
+  errors: {
+    language: ValidatorError: `js` is not a valid enum value for path `language`.
+        at validate (C:\Users\Mosafir\Desktop\CollabCode\backend\node_modules\mongoose\lib\schemaType.js:1407:13)
+        at SchemaType.doValidate (C:\Users\Mosafir\Desktop\CollabCode\backend\node_modules\mongoose\lib\schemaType.js:1391:7)
+        at C:\Users\Mosafir\Desktop\CollabCode\backend\node_modules\mongoose\lib\document.js:3111:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:85:11) {
+      properties: {
+        validator: [Function (anonymous)],
+        message: '`js` is not a valid enum value for path `language`.',
+        type: 'enum',
+        enumValues: [
+          'javascript', 'typescript', 'python',
+          'java',       'cpp',        'c',
+          'csharp',     'php',        'ruby',
+          'go',         'rust',       'swift',
+          'kotlin',     'html',       'css',
+          'scss',       'json',       'xml',
+          'yaml',       'markdown',   'sql',
+          'shell',      'dockerfile', 'other'
+        ],
+        path: 'language',
+        fullPath: undefined,
+        value: 'js'
+      },
+      kind: 'enum',
+      path: 'language',
+      value: 'js',
+      reason: undefined,
+      [Symbol(mongoose#validatorError)]: true
+    }
+  },
+  _message: 'Project validation failed',
+  level: 'error',
+  message: 'Create project error: Project validation failed: language: `js` is not a valid enum value for path `language`.',
+  stack: 'ValidationError: Project validation failed: language: `js` is not a valid enum value for path `language`.\n' +
+    '    at Document.invalidate (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongoose\\lib\\document.js:3358:32)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongoose\\lib\\document.js:3119:17\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1410:9\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  timestamp: '2025-08-05 12:52:16'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 12:53:01'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 12:53:01'
+}
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:90:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-05 13:01:29'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 13:02:54'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: 'Authentication error: invalid signature',
+  level: 'error',
+  stack: 'JsonWebTokenError: invalid signature\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:171:19\n' +
+    '    at getSecret (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:97:14)\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:101:10)\n' +
+    '    at protect (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\middleware\\auth.js:25:25)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-08-05 13:07:36'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 13:08:13'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 13:10:28'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 13:11:11'
+}
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:90:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-05 13:55:27'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 13:56:12'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:04:46'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:06:12'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Error creating file/folder index.js: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:15:21'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:15:21'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Error creating file/folder index.js: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:16:11'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:16:11'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Error creating file/folder index.js: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:16:36'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:16:36'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Error creating file/folder index.js: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:18:45'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:18:45'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Error creating file/folder index.js: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:21:50'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:21:50'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Error creating file/folder index.js: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:22:47'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:22:47'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Error creating file/folder index.js: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:23:02'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:23:02'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Error creating file/folder index.js: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:23:54'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:23:54'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Error creating file/folder index.js: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:26:33'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:26:33'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Error creating file/folder index.js: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:27:30'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:27:30'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Error creating file/folder index.js: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:28:04'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 17262,
+    errmsg: 'language override unsupported: js'
+  },
+  index: 0,
+  code: 17262,
+  level: 'error',
+  message: 'Create project error: language override unsupported: js',
+  stack: 'MongoServerError: language override unsupported: js\n' +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:28:04'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 11000,
+    errmsg: "E11000 duplicate key error collection: collabcode.files index: project_1_path_1 dup key: { project: ObjectId('6891cebeb0a658d506484e79'), path: null }",
+    keyPattern: { project: 1, path: 1 },
+    keyValue: { project: new ObjectId('6891cebeb0a658d506484e79'), path: null }
+  },
+  index: 0,
+  code: 11000,
+  keyPattern: { project: 1, path: 1 },
+  keyValue: { project: new ObjectId('6891cebeb0a658d506484e79'), path: null },
+  level: 'error',
+  message: "Error creating file/folder components: E11000 duplicate key error collection: collabcode.files index: project_1_path_1 dup key: { project: ObjectId('6891cebeb0a658d506484e79'), path: null }",
+  stack: "MongoServerError: E11000 duplicate key error collection: collabcode.files index: project_1_path_1 dup key: { project: ObjectId('6891cebeb0a658d506484e79'), path: null }\n" +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:28:30'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 11000,
+    errmsg: "E11000 duplicate key error collection: collabcode.files index: project_1_path_1 dup key: { project: ObjectId('6891cebeb0a658d506484e79'), path: null }",
+    keyPattern: { project: 1, path: 1 },
+    keyValue: { project: new ObjectId('6891cebeb0a658d506484e79'), path: null }
+  },
+  index: 0,
+  code: 11000,
+  keyPattern: { project: 1, path: 1 },
+  keyValue: { project: new ObjectId('6891cebeb0a658d506484e79'), path: null },
+  level: 'error',
+  message: "Create project error: E11000 duplicate key error collection: collabcode.files index: project_1_path_1 dup key: { project: ObjectId('6891cebeb0a658d506484e79'), path: null }",
+  stack: "MongoServerError: E11000 duplicate key error collection: collabcode.files index: project_1_path_1 dup key: { project: ObjectId('6891cebeb0a658d506484e79'), path: null }\n" +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:28:30'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 11000,
+    errmsg: "E11000 duplicate key error collection: collabcode.files index: project_1_path_1 dup key: { project: ObjectId('6891ceccb0a658d506484e80'), path: null }",
+    keyPattern: { project: 1, path: 1 },
+    keyValue: { project: new ObjectId('6891ceccb0a658d506484e80'), path: null }
+  },
+  index: 0,
+  code: 11000,
+  keyPattern: { project: 1, path: 1 },
+  keyValue: { project: new ObjectId('6891ceccb0a658d506484e80'), path: null },
+  level: 'error',
+  message: "Error creating file/folder components: E11000 duplicate key error collection: collabcode.files index: project_1_path_1 dup key: { project: ObjectId('6891ceccb0a658d506484e80'), path: null }",
+  stack: "MongoServerError: E11000 duplicate key error collection: collabcode.files index: project_1_path_1 dup key: { project: ObjectId('6891ceccb0a658d506484e80'), path: null }\n" +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:28:44'
+}
+{
+  service: 'collabcode-backend',
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 11000,
+    errmsg: "E11000 duplicate key error collection: collabcode.files index: project_1_path_1 dup key: { project: ObjectId('6891ceccb0a658d506484e80'), path: null }",
+    keyPattern: { project: 1, path: 1 },
+    keyValue: { project: new ObjectId('6891ceccb0a658d506484e80'), path: null }
+  },
+  index: 0,
+  code: 11000,
+  keyPattern: { project: 1, path: 1 },
+  keyValue: { project: new ObjectId('6891ceccb0a658d506484e80'), path: null },
+  level: 'error',
+  message: "Create project error: E11000 duplicate key error collection: collabcode.files index: project_1_path_1 dup key: { project: ObjectId('6891ceccb0a658d506484e80'), path: null }",
+  stack: "MongoServerError: E11000 duplicate key error collection: collabcode.files index: project_1_path_1 dup key: { project: ObjectId('6891ceccb0a658d506484e80'), path: null }\n" +
+    '    at InsertOneOperation.execute (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async tryOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:207:20)\n' +
+    '    at async executeOperation (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:75:16)\n' +
+    '    at async Collection.insertOne (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\mongodb\\lib\\collection.js:157:16)',
+  timestamp: '2025-08-05 14:28:44'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: 'Authentication error: jwt malformed',
+  level: 'error',
+  stack: 'JsonWebTokenError: jwt malformed\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:70:17)\n' +
+    '    at protect (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\middleware\\auth.js:25:25)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at param (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:365:14)\n' +
+    '    at param (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:376:14)\n' +
+    '    at Function.process_params (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:421:3)',
+  timestamp: '2025-08-05 15:11:06'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: 'Authentication error: jwt malformed',
+  level: 'error',
+  stack: 'JsonWebTokenError: jwt malformed\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:70:17)\n' +
+    '    at protect (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\middleware\\auth.js:25:25)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+    '    at Function.handle (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:175:3)',
+  timestamp: '2025-08-05 15:11:31'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: 'Authentication error: jwt malformed',
+  level: 'error',
+  stack: 'JsonWebTokenError: jwt malformed\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:70:17)\n' +
+    '    at protect (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\middleware\\auth.js:25:25)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+    '    at Function.handle (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:175:3)',
+  timestamp: '2025-08-05 15:13:00'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: 'Authentication error: jwt malformed',
+  level: 'error',
+  stack: 'JsonWebTokenError: jwt malformed\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:70:17)\n' +
+    '    at protect (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\middleware\\auth.js:25:25)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+    '    at Function.handle (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:175:3)',
+  timestamp: '2025-08-05 15:16:58'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: 'Authentication error: jwt malformed',
+  level: 'error',
+  stack: 'JsonWebTokenError: jwt malformed\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:70:17)\n' +
+    '    at protect (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\middleware\\auth.js:25:25)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+    '    at Function.handle (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:175:3)',
+  timestamp: '2025-08-05 15:33:16'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: 'Authentication error: jwt malformed',
+  level: 'error',
+  stack: 'JsonWebTokenError: jwt malformed\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:70:17)\n' +
+    '    at protect (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\middleware\\auth.js:25:25)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+    '    at Function.handle (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:175:3)',
+  timestamp: '2025-08-08 11:07:12'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: 'Authentication error: jwt malformed',
+  level: 'error',
+  stack: 'JsonWebTokenError: jwt malformed\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:70:17)\n' +
+    '    at protect (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\middleware\\auth.js:25:25)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+    '    at Function.handle (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:175:3)',
+  timestamp: '2025-08-08 11:10:23'
+}
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:90:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-08 12:18:13'
+}
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:90:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-08 12:18:41'
+}
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:90:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-08 14:08:13'
+}
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:90:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-08 14:09:34'
+}
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:92:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-10 14:20:58'
+}
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:100:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-23 11:50:32'
+}
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:100:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-29 12:05:47'
+}
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:100:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-29 12:30:52'
+}
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:100:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-29 12:31:14'
+}
+{
+  service: 'collabcode-backend',
+  level: 'error',
+  message: '💥 Failed to create container session: getPort.makeRange is not a function',
+  stack: 'TypeError: getPort.makeRange is not a function\n' +
+    '    at ContainerManager.createSession (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\runtime\\ContainerManager.js:37:59)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\socket\\socketHandler.js:599:22)',
+  timestamp: '2025-08-29 12:32:37'
+}
+{
+  service: 'collabcode-backend',
+  level: 'error',
+  message: '💥 Failed to create container session: getPort.makeRange is not a function',
+  stack: 'TypeError: getPort.makeRange is not a function\n' +
+    '    at ContainerManager.createSession (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\runtime\\ContainerManager.js:37:59)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\socket\\socketHandler.js:599:22)',
+  timestamp: '2025-08-29 12:32:37'
+}
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:100:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-29 12:32:38'
+}
+{
+  service: 'collabcode-backend',
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000,
+  level: 'error',
+  message: 'Server error: listen EADDRINUSE: address already in use :::5000',
+  stack: 'Error: listen EADDRINUSE: address already in use :::5000\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1937:16)\n' +
+    '    at listenInCluster (node:net:1994:12)\n' +
+    '    at Server.listen (node:net:2099:7)\n' +
+    '    at startServer (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\server.js:100:12)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-08-29 12:33:26'
+}
+{
+  service: 'collabcode-backend',
+  level: 'error',
+  message: '💥 Failed to create container session: getPort is not a function',
+  stack: 'TypeError: getPort is not a function\n' +
+    '    at ContainerManager.createSession (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\runtime\\ContainerManager.js:37:35)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\socket\\socketHandler.js:599:22)',
+  timestamp: '2025-08-29 12:35:41'
+}
+{
+  service: 'collabcode-backend',
+  level: 'error',
+  message: '💥 Failed to create container session: getPort is not a function',
+  stack: 'TypeError: getPort is not a function\n' +
+    '    at ContainerManager.createSession (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\runtime\\ContainerManager.js:37:35)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\socket\\socketHandler.js:599:22)',
+  timestamp: '2025-08-29 12:35:41'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: 'Authentication error: jwt malformed',
+  level: 'error',
+  stack: 'JsonWebTokenError: jwt malformed\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:70:17)\n' +
+    '    at protect (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\middleware\\auth.js:25:25)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:807:7',
+  timestamp: '2025-08-29 17:02:53'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: 'Authentication error: jwt malformed',
+  level: 'error',
+  stack: 'JsonWebTokenError: jwt malformed\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:70:17)\n' +
+    '    at protect (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\middleware\\auth.js:25:25)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:807:7',
+  timestamp: '2025-08-29 17:05:14'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: 'Authentication error: jwt malformed',
+  level: 'error',
+  stack: 'JsonWebTokenError: jwt malformed\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\jsonwebtoken\\verify.js:70:17)\n' +
+    '    at protect (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\src\\middleware\\auth.js:25:25)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+    '    at next (C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:807:7',
+  timestamp: '2025-08-29 17:06:01'
+}
