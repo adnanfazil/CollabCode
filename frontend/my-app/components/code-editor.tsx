@@ -128,6 +128,66 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
     currentCompletionRef.current = currentCompletion
   }, [currentCompletion])
 
+  // Add multi-line ghost preview support via Monaco view zones
+  const ghostZoneIdRef = useRef<string | null>(null)
+  const ghostZoneDomRef = useRef<HTMLDivElement | null>(null)
+
+  const clearGhostPreview = useCallback(() => {
+    const editor = editorRef.current
+    if (!editor) return
+    const zoneId = ghostZoneIdRef.current
+    if (!zoneId) return
+    try {
+      editor.changeViewZones((accessor) => {
+        accessor.removeZone(zoneId)
+      })
+    } catch {}
+    ghostZoneIdRef.current = null
+    ghostZoneDomRef.current = null
+  }, [])
+
+  const renderGhostPreview = useCallback(() => {
+    const editor = editorRef.current
+    if (!editor) return
+
+    const latest = (currentCompletionRef.current || '')
+    const lines = latest.split('\n')
+
+    // Only render extra lines beyond the first line; the first line is handled by inlineSuggest ghost text
+    if (lines.length <= 1) {
+      clearGhostPreview()
+      return
+    }
+
+    const extra = lines.slice(1).join('\n')
+    const afterLineNumber = editor.getPosition()?.lineNumber || 1
+    const heightInLines = Math.max(1, lines.length - 1)
+
+    editor.changeViewZones((accessor) => {
+      // Remove existing zone if present
+      if (ghostZoneIdRef.current) {
+        try { accessor.removeZone(ghostZoneIdRef.current) } catch {}
+        ghostZoneIdRef.current = null
+      }
+
+      // Create DOM node for the preview
+      const dom = document.createElement('div')
+      dom.className = 'ghost-multiline-preview'
+      dom.style.pointerEvents = 'none'
+      dom.style.whiteSpace = 'pre'
+      dom.textContent = extra
+
+      const id = accessor.addZone({
+        afterLineNumber,
+        heightInLines,
+        domNode: dom
+      } as any)
+
+      ghostZoneIdRef.current = id
+      ghostZoneDomRef.current = dom
+    })
+  }, [clearGhostPreview])
+
   // Force Monaco to refresh inline completions when currentCompletion changes
   useEffect(() => {
     if (editorRef.current && currentCompletion) {
@@ -144,6 +204,11 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
       }
     }
   }, [currentCompletion])
+
+  // Keep the multi-line ghost preview in sync with streaming tokens
+  useEffect(() => {
+    renderGhostPreview()
+  }, [currentCompletion, renderGhostPreview])
 
   // Handle incoming code changes from other users
   useEffect(() => {
@@ -244,6 +309,8 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
       if (inlineCompletionProviderRef.current) {
         inlineCompletionProviderRef.current.dispose()
       }
+      // Remove any ghost preview and cancel ongoing completion
+      clearGhostPreview()
       // Cancel any ongoing completion requests
       cancelCompletion()
     }
@@ -347,7 +414,7 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
         language: resolvedLanguage || 'javascript',
         cursorPosition: {
           line: position.lineNumber,
-          column: position.column - 1 // Convert to 0-based
+          column: position.column // Keep 1-based column to match backend expectations
         },
         maxTokens: 100,
         temperature: 0.3,
@@ -359,6 +426,9 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
       }
 
       console.log('🚀 Sending completion request:', completionRequest)
+      // Reset any existing completion/preview before starting a new one
+      try { cancelCompletion() } catch {}
+      clearGhostPreview()
       await requestCompletion(completionRequest)
       console.log('✅ Completion request sent successfully')
     } catch (error) {
@@ -421,7 +491,8 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
               command: {
                 id: 'ai-completion-accepted',
                 title: 'AI Completion Accepted'
-              }
+              },
+              completeBracketPairs: true
             }
 
             console.log('✨ Providing inline completion item:', {
@@ -480,6 +551,8 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
             }])
             // Clear completion after acceptance
             cancelCompletion()
+            clearGhostPreview()
+            editor.trigger('ai-completion', 'editor.action.inlineSuggest.hide', {})
             setTimeout(() => {
               isApplyingCompletion.current = false
             }, 100)
@@ -525,6 +598,8 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
             }])
             // Clear completion after acceptance
             cancelCompletion()
+            clearGhostPreview()
+            editor.trigger('ai-completion', 'editor.action.inlineSuggest.hide', {})
             setTimeout(() => {
               isApplyingCompletion.current = false
             }, 100)
@@ -541,6 +616,8 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
       () => {
         if (currentCompletion.trim()) {
           cancelCompletion()
+          clearGhostPreview()
+          editor.trigger('ai-completion', 'editor.action.inlineSuggest.hide', {})
           return true
         }
         return false // Allow default Escape behavior if no completion
@@ -550,7 +627,9 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
     // Track content changes for collaborative editing
     editor.onDidChangeModelContent((e) => {
       if (isReceivingChange.current) return // Prevent infinite loops from remote changes
-      
+      // If user types, hide ghost preview (it will re-render during new stream)
+      clearGhostPreview()
+      editor.trigger('ai-completion', 'editor.action.inlineSuggest.hide', {})
       // Handle typing indicators
       if (fileId && projectId) {
         // Start code typing indicator
@@ -640,6 +719,13 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
       @keyframes typing-pulse {
         0%, 100% { opacity: 1; }
         50% { opacity: 0.5; }
+      }
+      .ghost-multiline-preview {
+        color: rgba(255, 255, 255, 0.35);
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        white-space: pre;
       }
     `
     document.head.appendChild(style)
@@ -793,6 +879,13 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
         showUnused: true,
         snippetSuggestions: "inline",
         stablePeek: true,
+        inlineSuggest: {
+          enabled: true,
+          mode: 'prefix',
+          keepOnBlur: true,
+          showToolbar: 'onHover',
+          suppressSuggestions: false
+        },
         suggest: {
           showClasses: true,
           showColors: true,
