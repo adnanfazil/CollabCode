@@ -1,10 +1,11 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useCallback } from "react"
 import { useSocket } from "@/lib/socket-context"
 import { useAuth } from "@/lib/auth-context"
-import type { editor } from "monaco-editor"
+import { useStreamingCompletions, type CompletionRequest } from "@/lib/use-streaming-completions"
+import type { editor, languages } from "monaco-editor"
 
 const Monaco = dynamic(() => import("@monaco-editor/react"), { ssr: false })
 
@@ -109,12 +110,40 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
   const resolvedLanguage = language ?? detectLanguageFromFilename(path)
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null)
   const isReceivingChange = useRef(false)
+  const isApplyingCompletion = useRef(false)
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null)
   const { sendCodeChange, sendCursorPosition, onCodeChange, onCursorUpdate, collaborators, startCodeTyping, stopCodeTyping, codeTypingUsers } = useSocket()
   const { user } = useAuth()
+  const { requestCompletion, cancelCompletion, isLoading: isCompletionLoading, currentCompletion, error: completionError } = useStreamingCompletions()
   const decorationsRef = useRef<string[]>([])
   const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const lastSentValueRef = useRef<string>(value)
+  const completionTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const lastCompletionRequestRef = useRef<string>('')
+  const inlineCompletionProviderRef = useRef<any>(null)
+  const currentCompletionRef = useRef<string>('')
+
+  // Keep a ref in sync to avoid stale closures inside Monaco providers/commands
+  useEffect(() => {
+    currentCompletionRef.current = currentCompletion
+  }, [currentCompletion])
+
+  // Force Monaco to refresh inline completions when currentCompletion changes
+  useEffect(() => {
+    if (editorRef.current && currentCompletion) {
+      console.log('🔄 Triggering Monaco inline completion refresh for:', currentCompletion.slice(0, 50))
+      const monaco = (window as any).monaco
+      if (monaco && monaco.editor) {
+        // Trigger inline completions manually
+        const editor = editorRef.current
+        const position = editor.getPosition()
+        if (position) {
+          // Force Monaco to re-evaluate inline completions
+          editor.trigger('ai-completion', 'editor.action.inlineSuggest.trigger', {})
+        }
+      }
+    }
+  }, [currentCompletion])
 
   // Handle incoming code changes from other users
   useEffect(() => {
@@ -197,7 +226,7 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
     return unsubscribe
   }, [fileId, projectId, onCursorUpdate])
 
-  // Cleanup timeouts on unmount
+  // Cleanup timeouts and providers on unmount
   useEffect(() => {
     return () => {
       if (typingTimeout) {
@@ -209,8 +238,16 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
       if (debounceTimeoutRef.current) {
         clearTimeout(debounceTimeoutRef.current)
       }
+      if (completionTimeoutRef.current) {
+        clearTimeout(completionTimeoutRef.current)
+      }
+      if (inlineCompletionProviderRef.current) {
+        inlineCompletionProviderRef.current.dispose()
+      }
+      // Cancel any ongoing completion requests
+      cancelCompletion()
     }
-  }, [typingTimeout, projectId, stopCodeTyping])
+  }, [typingTimeout, projectId, stopCodeTyping, cancelCompletion])
 
   const updateCollaboratorCursors = () => {
     if (!editorRef.current) return
@@ -248,8 +285,161 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
     decorationsRef.current = editorRef.current.deltaDecorations([], newDecorations)
   }
 
+  // Debounced completion request function
+  const requestCompletionDebounced = useCallback(async (editor: editor.IStandaloneCodeEditor, force: boolean = false) => {
+    console.log('🎯 requestCompletionDebounced called', { fileId, projectId, readOnly, force })
+    
+    if (!editor || !fileId || !projectId || readOnly) {
+      console.log('❌ Early return from completion request:', { editor: !!editor, fileId, projectId, readOnly })
+      return
+    }
+
+    const model = editor.getModel()
+    if (!model) {
+      console.log('❌ No model available')
+      return
+    }
+
+    const position = editor.getPosition()
+    if (!position) {
+      console.log('❌ No position available')
+      return
+    }
+
+    const code = model.getValue()
+    const currentLine = model.getLineContent(position.lineNumber)
+    const textBeforeCursor = currentLine.substring(0, position.column - 1)
+    
+    console.log('📝 Completion context:', {
+      codeLength: code.length,
+      currentLine,
+      textBeforeCursor,
+      position: { line: position.lineNumber, column: position.column },
+      language: resolvedLanguage
+    })
+    
+    // Determine context flags
+    const emptyText = !textBeforeCursor.trim()
+    const atBeginning = position.column <= 1
+    const inString = /["'`]/.test(textBeforeCursor.slice(-1))
+    const inComment = /\/\//.test(textBeforeCursor) || /\/\*/.test(textBeforeCursor)
+
+    // Skip only for non-forced requests
+    if (!force && (emptyText || atBeginning || inString || inComment)) {
+      console.log('🚫 Skipping completion request:', { emptyText, atBeginning, inString, inComment })
+      return
+    }
+
+    if (force) {
+      console.log('🔁 Forcing completion despite context:', { emptyText, atBeginning, inString, inComment })
+    }
+
+    const requestKey = `${code.length}-${position.lineNumber}-${position.column}`
+    if (!force && requestKey === lastCompletionRequestRef.current) {
+      console.log('🔄 Duplicate request, skipping:', requestKey)
+      return
+    }
+    lastCompletionRequestRef.current = requestKey
+
+    try {
+      const completionRequest: CompletionRequest = {
+        code,
+        language: resolvedLanguage || 'javascript',
+        cursorPosition: {
+          line: position.lineNumber,
+          column: position.column - 1 // Convert to 0-based
+        },
+        maxTokens: 100,
+        temperature: 0.3,
+        context: {
+          fileId,
+          projectId,
+          fileName: path
+        }
+      }
+
+      console.log('🚀 Sending completion request:', completionRequest)
+      await requestCompletion(completionRequest)
+      console.log('✅ Completion request sent successfully')
+    } catch (error) {
+      console.error('❌ Error requesting completion:', error)
+    }
+  }, [fileId, projectId, readOnly, resolvedLanguage, path, requestCompletion])
+
   const handleEditorMount = (editor: editor.IStandaloneCodeEditor) => {
     editorRef.current = editor
+
+    // Register inline completions provider
+    const monaco = (window as any).monaco
+    if (monaco && monaco.languages) {
+      // Dispose existing provider if any
+      if (inlineCompletionProviderRef.current) {
+        inlineCompletionProviderRef.current.dispose()
+      }
+
+      // Register new inline completions provider
+      inlineCompletionProviderRef.current = monaco.languages.registerInlineCompletionsProvider(
+        resolvedLanguage || 'javascript',
+        {
+          provideInlineCompletions: async (
+            model: any,
+            position: any,
+            context: any,
+            token: any
+          ) => {
+            const latest = currentCompletionRef.current || ''
+            console.log('🎯 Monaco requesting inline completions:', {
+              hasCompletion: !!latest.trim(),
+              completionLength: latest.length,
+              completionPreview: latest.slice(0, 50),
+              readOnly,
+              position: { line: position.lineNumber, column: position.column }
+            })
+
+            // Don't provide completions if we're in read-only mode or no current completion
+            if (readOnly || !latest.trim()) {
+              return { items: [] }
+            }
+
+            // Get current cursor position
+            const currentPosition = editor.getPosition()
+            if (!currentPosition || 
+                currentPosition.lineNumber !== position.lineNumber ||
+                currentPosition.column !== position.column) {
+              return { items: [] }
+            }
+
+            // Create completion item
+            const completionItem = {
+              insertText: latest,
+              range: new monaco.Range(
+                position.lineNumber,
+                position.column,
+                position.lineNumber,
+                position.column
+              ),
+              command: {
+                id: 'ai-completion-accepted',
+                title: 'AI Completion Accepted'
+              }
+            }
+
+            console.log('✨ Providing inline completion item:', {
+              insertText: completionItem.insertText.slice(0, 50),
+              range: completionItem.range
+            })
+
+            return {
+              items: [completionItem],
+              enableForwardStability: true
+            }
+          },
+          freeInlineCompletions: () => {
+            // Cleanup when completions are no longer needed
+          }
+        }
+      )
+    }
 
     // Track cursor position changes
     editor.onDidChangeCursorPosition((e) => {
@@ -258,8 +448,104 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
           line: e.position.lineNumber,
           column: e.position.column
         })
+
+        // Request completion after cursor movement (debounced)
+        if (completionTimeoutRef.current) {
+          clearTimeout(completionTimeoutRef.current)
+        }
+        completionTimeoutRef.current = setTimeout(() => {
+          requestCompletionDebounced(editor)
+        }, 500) // 500ms delay for completion requests
       }
     })
+
+    // Add keyboard shortcuts for completion acceptance
+    editor.addCommand(
+      (window as any).monaco.KeyMod.CtrlCmd | (window as any).monaco.KeyCode.RightArrow,
+      () => {
+        // Accept current completion with Ctrl/Cmd + Right Arrow
+        const latest = currentCompletionRef.current || ''
+        if (latest.trim()) {
+          const position = editor.getPosition()
+          if (position) {
+            isApplyingCompletion.current = true
+            editor.executeEdits('ai-completion', [{
+              range: new (window as any).monaco.Range(
+                position.lineNumber,
+                position.column,
+                position.lineNumber,
+                position.column
+              ),
+              text: latest
+            }])
+            // Clear completion after acceptance
+            cancelCompletion()
+            setTimeout(() => {
+              isApplyingCompletion.current = false
+            }, 100)
+          }
+        }
+      }
+    )
+
+    // Add Alt+\ to trigger inline AI completion request immediately
+    editor.addCommand(
+      (window as any).monaco.KeyMod.Alt | (((window as any).monaco.KeyCode && (window as any).monaco.KeyCode.US_BACKSLASH) ?? (window as any).monaco.KeyCode.Backslash),
+      () => {
+        // Cancel any pending debounce and trigger completion now
+        if (completionTimeoutRef.current) {
+          clearTimeout(completionTimeoutRef.current)
+          completionTimeoutRef.current = null
+        }
+        // Fire an immediate request using current editor context (force bypass duplicate check)
+        requestCompletionDebounced(editor, true)
+        // Also prompt Monaco to show inline suggestions UI
+        editor.trigger('ai-completion', 'editor.action.inlineSuggest.trigger', {})
+      }
+    )
+
+    // Add Tab key for completion acceptance (alternative)
+    editor.addCommand(
+      (window as any).monaco.KeyCode.Tab,
+      () => {
+        // Accept current completion with Tab (only if there's a completion)
+        const latest = currentCompletionRef.current || ''
+        if (latest.trim()) {
+          const position = editor.getPosition()
+          if (position) {
+            isApplyingCompletion.current = true
+            editor.executeEdits('ai-completion', [{
+              range: new (window as any).monaco.Range(
+                position.lineNumber,
+                position.column,
+                position.lineNumber,
+                position.column
+              ),
+              text: latest
+            }])
+            // Clear completion after acceptance
+            cancelCompletion()
+            setTimeout(() => {
+              isApplyingCompletion.current = false
+            }, 100)
+            return true // Prevent default Tab behavior
+          }
+        }
+        return false // Allow default Tab behavior if no completion
+      }
+    )
+
+    // Add Escape key to dismiss completions
+    editor.addCommand(
+      (window as any).monaco.KeyCode.Escape,
+      () => {
+        if (currentCompletion.trim()) {
+          cancelCompletion()
+          return true
+        }
+        return false // Allow default Escape behavior if no completion
+      }
+    )
 
     // Track content changes for collaborative editing
     editor.onDidChangeModelContent((e) => {
@@ -300,6 +586,28 @@ export default function CodeEditor({ value, onChange, language, path, readOnly, 
             // Note: Don't call onChange here as Monaco's onChange prop handles parent updates
           }
         }, 300) // Debounce time for responsive collaboration
+      }
+
+      // Request completion on typing (debounced)
+      if (fileId && projectId && !isReceivingChange.current && !isApplyingCompletion.current) {
+        // Only cancel completion if user is actively typing (not applying completion or receiving tokens)
+        if (currentCompletion.trim() && !isCompletionLoading) {
+          console.log('🛑 Cancelling completion due to user typing')
+          cancelCompletion()
+        }
+
+        // Clear existing completion timeout
+        if (completionTimeoutRef.current) {
+          clearTimeout(completionTimeoutRef.current)
+        }
+        
+        // Only request new completion if not currently loading
+        if (!isCompletionLoading) {
+          // Set new completion timeout
+          completionTimeoutRef.current = setTimeout(() => {
+            requestCompletionDebounced(editor)
+          }, 800) // Longer delay for typing-triggered completions
+        }
       }
     })
 

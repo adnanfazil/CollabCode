@@ -18,6 +18,7 @@ require('dotenv').config();
 const logger = require('./utils/logger');
 const { connectDB } = require('./config/database');
 const { initializeSocketHandlers, gracefulShutdown } = require('./socket/socketHandler');
+const { initializeCompletionHandlers, gracefulCompletionShutdown } = require('./socket/completionSocketHandler');
 const { errorHandler } = require('./middleware/errorHandler');
 const socketService = require('./services/socketService');
 const authRoutes = require('./routes/auth');
@@ -25,6 +26,7 @@ const userRoutes = require('./routes/users');
 const projectRoutes = require('./routes/projects');
 const fileRoutes = require('./routes/files');
 const chatbotRoutes = require('./routes/chatbot');
+const completionRoutes = require('./routes/completions');
 
 const app = express();
 const server = createServer(app);
@@ -84,10 +86,14 @@ app.use('/api/users', userRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/files', fileRoutes);
 app.use('/api/chatbot', chatbotRoutes);
+app.use('/api/completions', completionRoutes);
 
 // Initialize Socket.io handlers
 socketService.setIO(io);
 initializeSocketHandlers(io);
+
+// Initialize completion WebSocket handlers
+initializeCompletionHandlers(io);
 
 // Error handling middleware (must be last)
 app.use(errorHandler);
@@ -131,6 +137,7 @@ const startServer = async () => {
 process.on('SIGTERM', async () => {
   logger.info('SIGTERM received. Shutting down gracefully...');
   await gracefulShutdown();
+  await gracefulCompletionShutdown();
   server.close(() => {
     logger.info('Process terminated');
     mongoose.connection.close();
@@ -141,6 +148,7 @@ process.on('SIGTERM', async () => {
 process.on('SIGINT', async () => {
   logger.info('SIGINT received. Shutting down gracefully...');
   await gracefulShutdown();
+  await gracefulCompletionShutdown();
   server.close(() => {
     logger.info('Process terminated');
     mongoose.connection.close();

@@ -13,7 +13,7 @@ async function syncProjectToDisk(projectId) {
     logger.info(`📂 Starting file sync for project ${projectId}`);
     
     // Create project directory
-    const projectDir = path.join(process.cwd(), 'temp', 'projects', projectId);
+    const projectDir = path.join(process.cwd(), 'temp', 'projects', projectId.toString());
     await fs.mkdir(projectDir, { recursive: true });
     
     // Get all files for the project (excluding folders)
@@ -160,7 +160,7 @@ async function syncProjectFromDisk(projectId) {
   try {
     logger.info(`📥 Starting reverse file sync for project ${projectId}`);
 
-    const projectDir = path.join(process.cwd(), 'temp', 'projects', projectId);
+    const projectDir = path.join(process.cwd(), 'temp', 'projects', projectId.toString());
 
     // Check if directory exists
     try {
@@ -258,7 +258,7 @@ async function getAllFilesRecursive(dirPath) {
  */
 async function cleanupProjectDirectory(projectId) {
   try {
-    const projectDir = path.join(process.cwd(), 'temp', 'projects', projectId);
+    const projectDir = path.join(process.cwd(), 'temp', 'projects', projectId.toString());
     await fs.rm(projectDir, { recursive: true, force: true });
     logger.info(`🗑️ Cleaned up project directory: ${projectId}`);
     return true;

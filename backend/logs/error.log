@@ -1515,3 +1515,1119 @@
     '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
   timestamp: '2025-08-30 16:01:33'
 }
+{
+  service: 'collabcode-backend',
+  level: 'error',
+  message: 'Login error: "expiresIn" should be a number of seconds or string representing a timespan',
+  stack: 'Error: "expiresIn" should be a number of seconds or string representing a timespan\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\sign.js:56:15\n' +
+    '    at Array.forEach (<anonymous>)\n' +
+    '    at validate (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\sign.js:47:6)\n' +
+    '    at validateOptions (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\sign.js:62:10)\n' +
+    '    at module.exports [as sign] (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\sign.js:171:5)\n' +
+    '    at userSchema.methods.getRefreshToken (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\models\\User.js:139:14)\n' +
+    '    at generateTokens (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\auth.js:66:29)\n' +
+    '    at sendTokenResponse (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\auth.js:73:41)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\auth.js:147:5\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:37:21'
+}
+{
+  service: 'collabcode-backend',
+  level: 'error',
+  message: 'Login error: "expiresIn" should be a number of seconds or string representing a timespan',
+  stack: 'Error: "expiresIn" should be a number of seconds or string representing a timespan\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\sign.js:56:15\n' +
+    '    at Array.forEach (<anonymous>)\n' +
+    '    at validate (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\sign.js:47:6)\n' +
+    '    at validateOptions (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\sign.js:62:10)\n' +
+    '    at module.exports [as sign] (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\sign.js:171:5)\n' +
+    '    at userSchema.methods.getRefreshToken (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\models\\User.js:139:14)\n' +
+    '    at generateTokens (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\auth.js:66:29)\n' +
+    '    at sendTokenResponse (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\auth.js:73:41)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\auth.js:147:5\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:37:23'
+}
+{
+  service: 'collabcode-backend',
+  level: 'error',
+  message: 'Login error: "expiresIn" should be a number of seconds or string representing a timespan',
+  stack: 'Error: "expiresIn" should be a number of seconds or string representing a timespan\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\sign.js:56:15\n' +
+    '    at Array.forEach (<anonymous>)\n' +
+    '    at validate (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\sign.js:47:6)\n' +
+    '    at validateOptions (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\sign.js:62:10)\n' +
+    '    at module.exports [as sign] (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\sign.js:171:5)\n' +
+    '    at userSchema.methods.getRefreshToken (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\models\\User.js:139:14)\n' +
+    '    at generateTokens (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\auth.js:66:29)\n' +
+    '    at sendTokenResponse (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\auth.js:73:41)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\auth.js:147:5\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:37:25'
+}
+{
+  service: 'collabcode-backend',
+  status: 400,
+  statusText: 'Bad Request',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.ErrorInfo',
+      reason: 'API_KEY_INVALID',
+      domain: 'googleapis.com',
+      metadata: { service: 'generativelanguage.googleapis.com' }
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
+      locale: 'en-US',
+      message: 'API key not valid. Please pass a valid API key.'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse: [400 Bad Request] API key not valid. Please pass a valid API key. [{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"API_KEY_INVALID","domain":"googleapis.com","metadata":{"service":"generativelanguage.googleapis.com"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"API key not valid. Please pass a valid API key."}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse: [400 Bad Request] API key not valid. Please pass a valid API key. [{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"API_KEY_INVALID","domain":"googleapis.com","metadata":{"service":"generativelanguage.googleapis.com"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"API key not valid. Please pass a valid API key."}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:43:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-01 14:38:46'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:38:48'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:38:53'
+}
+{
+  service: 'collabcode-backend',
+  status: 400,
+  statusText: 'Bad Request',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.ErrorInfo',
+      reason: 'API_KEY_INVALID',
+      domain: 'googleapis.com',
+      metadata: { service: 'generativelanguage.googleapis.com' }
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
+      locale: 'en-US',
+      message: 'API key not valid. Please pass a valid API key.'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse: [400 Bad Request] API key not valid. Please pass a valid API key. [{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"API_KEY_INVALID","domain":"googleapis.com","metadata":{"service":"generativelanguage.googleapis.com"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"API key not valid. Please pass a valid API key."}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse: [400 Bad Request] API key not valid. Please pass a valid API key. [{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"API_KEY_INVALID","domain":"googleapis.com","metadata":{"service":"generativelanguage.googleapis.com"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"API key not valid. Please pass a valid API key."}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:43:22)\n' +
+    '    at async C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\completions.js:110:26',
+  timestamp: '2025-09-01 14:38:55'
+}
+{
+  service: 'collabcode-backend',
+  level: 'error',
+  message: 'Error during completion generation: token.trim is not a function',
+  stack: 'TypeError: token.trim is not a function\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\completions.js:111:30\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:38:55'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: '💥 WebSocket Authentication Error for socket IGoDY1gzTfYy-PBdAAAB: invalid signature',
+  level: 'error',
+  stack: 'JsonWebTokenError: invalid signature\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\verify.js:171:19\n' +
+    '    at getSecret (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\verify.js:97:14)\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\verify.js:101:10)\n' +
+    '    at Array.authenticateSocket (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\socketHandler.js:27:25)\n' +
+    '    at run (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\socket.io\\dist\\namespace.js:130:19)\n' +
+    '    at Namespace.run (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\socket.io\\dist\\namespace.js:141:9)\n' +
+    '    at Namespace._add (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\socket.io\\dist\\namespace.js:218:14)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:39:52'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: '💥 WebSocket Authentication Error for socket LdTCo58u1rT0pSurAAAD: invalid signature',
+  level: 'error',
+  stack: 'JsonWebTokenError: invalid signature\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\verify.js:171:19\n' +
+    '    at getSecret (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\verify.js:97:14)\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\verify.js:101:10)\n' +
+    '    at Array.authenticateSocket (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\socketHandler.js:27:25)\n' +
+    '    at run (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\socket.io\\dist\\namespace.js:130:19)\n' +
+    '    at Namespace.run (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\socket.io\\dist\\namespace.js:141:9)\n' +
+    '    at Namespace._add (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\socket.io\\dist\\namespace.js:218:14)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:39:55'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: '💥 WebSocket Authentication Error for socket tm03LPkuFHtXpwmCAAAF: invalid signature',
+  level: 'error',
+  stack: 'JsonWebTokenError: invalid signature\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\verify.js:171:19\n' +
+    '    at getSecret (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\verify.js:97:14)\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\verify.js:101:10)\n' +
+    '    at Array.authenticateSocket (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\socketHandler.js:27:25)\n' +
+    '    at run (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\socket.io\\dist\\namespace.js:130:19)\n' +
+    '    at Namespace.run (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\socket.io\\dist\\namespace.js:141:9)\n' +
+    '    at Namespace._add (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\socket.io\\dist\\namespace.js:218:14)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:39:59'
+}
+{
+  service: 'collabcode-backend',
+  name: 'JsonWebTokenError',
+  message: '💥 WebSocket Authentication Error for socket r3w3u8CVzDJQqFtgAAAH: invalid signature',
+  level: 'error',
+  stack: 'JsonWebTokenError: invalid signature\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\verify.js:171:19\n' +
+    '    at getSecret (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\verify.js:97:14)\n' +
+    '    at module.exports [as verify] (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\jsonwebtoken\\verify.js:101:10)\n' +
+    '    at Array.authenticateSocket (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\socketHandler.js:27:25)\n' +
+    '    at run (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\socket.io\\dist\\namespace.js:130:19)\n' +
+    '    at Namespace.run (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\socket.io\\dist\\namespace.js:141:9)\n' +
+    '    at Namespace._add (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\socket.io\\dist\\namespace.js:218:14)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:40:05'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:40:26'
+}
+{
+  service: 'collabcode-backend',
+  level: 'error',
+  message: 'Error during completion generation: token.trim is not a function',
+  stack: 'TypeError: token.trim is not a function\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\completions.js:111:30\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:40:38'
+}
+{
+  service: 'collabcode-backend',
+  code: 'ERR_INVALID_ARG_TYPE',
+  level: 'error',
+  message: '💥 File sync failed for project 68b2b2326a3dab11194ba0b2: The "path" argument must be of type string. Received an instance of ObjectId',
+  stack: 'TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of ObjectId\n' +
+    '    at Object.join (node:path:478:7)\n' +
+    '    at syncProjectToDisk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\fileSync.js:16:29)\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\files.js:340:15\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:40:53'
+}
+{
+  service: 'collabcode-backend',
+  level: 'error',
+  message: 'Error during completion generation: token.trim is not a function',
+  stack: 'TypeError: token.trim is not a function\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\completions.js:111:30\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:41:04'
+}
+{
+  service: 'collabcode-backend',
+  level: 'error',
+  message: 'Error during completion generation: token.trim is not a function',
+  stack: 'TypeError: token.trim is not a function\n' +
+    '    at C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\completions.js:111:30\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-09-01 14:41:06'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '34s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"34s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"34s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 11:29:26'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '34s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"34s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"34s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 17:05:25'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { model: 'gemini-1.5-flash', location: 'global' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '32s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-1.5-flash","location":"global"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"32s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-1.5-flash","location":"global"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"32s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 17:05:27'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '25s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"25s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"25s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 17:05:34'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '24s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"24s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"24s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\completions.js:106:26',
+  timestamp: '2025-09-02 17:05:35'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '22s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"22s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"22s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 17:05:37'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { model: 'gemini-1.5-flash', location: 'global' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '18s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-1.5-flash","location":"global"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"18s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-1.5-flash","location":"global"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"18s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 17:05:41'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '15s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"15s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"15s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\completions.js:106:26',
+  timestamp: '2025-09-02 17:05:44'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '46s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"46s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"46s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 17:44:13'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '44s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"44s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"44s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 17:44:15'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '33s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"33s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"33s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\completions.js:106:26',
+  timestamp: '2025-09-02 17:44:26'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '5s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"5s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"5s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 17:45:54'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '55s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"55s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"55s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\completions.js:106:26',
+  timestamp: '2025-09-02 17:46:04'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { model: 'gemini-1.5-flash', location: 'global' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '44s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-1.5-flash","location":"global"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"44s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-1.5-flash","location":"global"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"44s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 17:46:15'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '42s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"42s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"42s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 17:46:17'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '40s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"40s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"40s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 17:46:19'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { model: 'gemini-1.5-flash', location: 'global' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '34s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-1.5-flash","location":"global"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"34s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-1.5-flash","location":"global"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"34s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\completions.js:106:26',
+  timestamp: '2025-09-02 17:46:25'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '33s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"33s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"33s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 17:46:26'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '32s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"32s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"32s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\completions.js:106:26',
+  timestamp: '2025-09-02 17:46:27'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '31s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"31s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"31s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async Socket.<anonymous> (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\socket\\completionSocketHandler.js:100:26)',
+  timestamp: '2025-09-02 17:46:28'
+}
+{
+  service: 'collabcode-backend',
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [
+        {
+          quotaMetric: 'generativelanguage.googleapis.com/generate_content_free_tier_requests',
+          quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier',
+          quotaDimensions: { location: 'global', model: 'gemini-1.5-flash' },
+          quotaValue: '50'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.Help',
+      links: [
+        {
+          description: 'Learn more about Gemini API quotas',
+          url: 'https://ai.google.dev/gemini-api/docs/rate-limits'
+        }
+      ]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '20s'
+    }
+  ],
+  level: 'error',
+  message: 'Error generating streaming completion: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"20s"}]',
+  stack: 'Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-1.5-flash"},"quotaValue":"50"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"20s"}]\n' +
+    '    at handleResponseNotOk (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:434:11)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async makeRequest (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:403:9)\n' +
+    '    at async generateContentStream (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\node_modules\\@google\\generative-ai\\dist\\index.js:862:22)\n' +
+    '    at async StreamingCompletionService.generateCompletion (C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\services\\streamingCompletionService.js:48:22)\n' +
+    '    at async C:\\Users\\Mosafir\\Desktop\\CollabCode(updated)\\backend\\src\\routes\\completions.js:106:26',
+  timestamp: '2025-09-02 17:46:39'
+}

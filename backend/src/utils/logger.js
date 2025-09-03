@@ -24,7 +24,7 @@ const consoleFormat = winston.format.combine(
 
 // Create logger instance
 const logger = winston.createLogger({
-  level: process.env.LOG_LEVEL || 'info',
+  level: process.env.LOG_LEVEL || 'debug',
   format: logFormat,
   defaultMeta: { service: 'collabcode-backend' },
   transports: [
