@@ -70,8 +70,13 @@ class GeminiService {
    */
   buildPrompt(userQuery, context) {
     const queryType = this.classifyQuery(userQuery);
-    const systemPrompt = this.getSystemPrompt(queryType);
+    let systemPrompt = this.getSystemPrompt(queryType);
     const contextInfo = this.formatContext(context);
+
+    // If attachments are present, guide the model on how to use them
+    if (Array.isArray(context.attachedFiles) && context.attachedFiles.length > 0) {
+      systemPrompt += `\n\nWhen answering, use the attached files as the primary source of truth.\n- Reference files by name and, when applicable, line numbers.\n- If a file was truncated, acknowledge it and avoid assumptions beyond the provided content.\n- Prefer concrete, actionable steps and minimal hallucination.\n- Where code edits are needed, show concise diffs or code blocks scoped to the relevant file(s).`;
+    }
     
     return `${systemPrompt}\n\nContext:${contextInfo}\n\nUser Query: ${userQuery}\n\nPlease provide your analysis and solution:`;
   }
@@ -223,9 +228,21 @@ Be thorough but concise, focusing on practical value.`
     if (context.stackTrace) {
       contextInfo += `\nStack Trace: ${context.stackTrace}`;
     }
+
+    // Attachments summary (if provided)
+    if (Array.isArray(context.attachedFiles) && context.attachedFiles.length > 0) {
+      const summaryLines = context.attachedFiles.map((f, idx) => {
+        const lang = f.language || f.mimeType || 'text';
+        const size = typeof f.size === 'number' ? `${f.size} bytes` : 'unknown size';
+        const trunc = f.truncated ? ', truncated' : '';
+        return `  ${idx + 1}. ${f.name} (${lang}, ${size}${trunc})`;
+      });
+      contextInfo += `\nAttachments:\n${summaryLines.join('\n')}`;
+    }
     
+    // Attached file contents block (bounded and pre-formatted upstream)
     if (context.fileContent) {
-      contextInfo += `\nRelevant Code: ${context.fileContent}`;
+      contextInfo += `\nAttached File Contents (read-only, may be truncated):\n${context.fileContent}`;
     }
     
     if (context.terminalOutput) {

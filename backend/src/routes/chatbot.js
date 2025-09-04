@@ -8,11 +8,155 @@ const { protect } = require('../middleware/auth');
 const auth = protect;
 const logger = require('../utils/logger');
 const rateLimit = require('express-rate-limit');
+// Add File model for attachment support
+const File = require('../models/File');
 
 // Initialize services
 const geminiService = new GeminiService();
 const errorAnalysisService = new ErrorAnalysisService();
 const responseProcessingService = new ResponseProcessingService();
+
+// Attachment limits (configurable via env)
+const MAX_ATTACH_FILES = parseInt(process.env.CHATBOT_MAX_ATTACH_FILES || '5', 10);
+const MAX_ATTACH_BYTES = parseInt(process.env.CHATBOT_MAX_ATTACH_BYTES || '200000', 10); // ~200KB total
+const MAX_PER_FILE_BYTES = parseInt(process.env.CHATBOT_MAX_PER_FILE_BYTES || '80000', 10); // ~80KB per file cap
+
+// Utility to create a bounded preview string (head+tail) for large files
+function createBoundedPreview(text, maxBytes) {
+  if (!text) return '';
+  const encoder = new TextEncoder();
+  const buf = encoder.encode(text);
+  if (buf.byteLength <= maxBytes) return text;
+  // Take head and tail chunks
+  const headBytes = Math.floor(maxBytes * 0.7);
+  const tailBytes = maxBytes - headBytes;
+
+  // Helper to slice by bytes respecting UTF-8 boundaries (approx by string slice)
+  const takeHead = text.slice(0, Math.max(0, Math.floor(text.length * 0.7)));
+  const takeTail = text.slice(Math.max(0, text.length - Math.floor(text.length * 0.25)));
+  let head = takeHead;
+  let tail = takeTail;
+  // Ensure approx byte sizes
+  let headBuf = encoder.encode(head);
+  if (headBuf.byteLength > headBytes) {
+    const ratio = headBytes / headBuf.byteLength;
+    head = head.slice(0, Math.floor(head.length * ratio));
+    headBuf = encoder.encode(head);
+  }
+  let tailBuf = encoder.encode(tail);
+  if (tailBuf.byteLength > tailBytes) {
+    const ratio = tailBytes / tailBuf.byteLength;
+    tail = tail.slice(Math.max(0, tail.length - Math.floor(tail.length * ratio)));
+    tailBuf = encoder.encode(tail);
+  }
+
+  return `${head}\n\n... [truncated ${buf.byteLength - (headBuf.byteLength + tailBuf.byteLength)} bytes omitted] ...\n\n${tail}`;
+}
+
+// Build an attachments context block string and metadata summary
+async function buildAttachmentsContext(user, projectId, rawAttachments) {
+  if (!rawAttachments || !Array.isArray(rawAttachments) || rawAttachments.length === 0) {
+    return { contextBlock: '', meta: [], totalBytes: 0 };
+  }
+
+  // Helper to allow only text-like files
+  const isTextLike = (file) => {
+    const mt = (file.mimeType || '').toLowerCase();
+    const lang = (file.language || '').toLowerCase();
+    if (mt.startsWith('text/')) return true;
+    const allowedMime = new Set([
+      'application/json',
+      'application/xml',
+      'application/x-yaml',
+      'application/yaml',
+      'application/javascript',
+      'application/typescript'
+    ]);
+    if (allowedMime.has(mt)) return true;
+    const allowedLang = new Set([
+      'javascript','typescript','tsx','jsx','python','java','kotlin','swift','ruby','go','rust','php','c','cpp','csharp','shell','bash','sh','html','css','scss','json','yaml','yml','xml','markdown','md','sql','dockerfile'
+    ]);
+    return allowedLang.has(lang);
+  };
+
+  // Normalize attachments to array of ids (MVP: whole-file only)
+  const attachments = rawAttachments.map((a) => {
+    if (typeof a === 'string') return { id: a };
+    if (a && typeof a === 'object' && a.id) return { id: a.id, fromLine: a.fromLine, toLine: a.toLine };
+    return null;
+  }).filter(Boolean);
+
+  if (attachments.length > MAX_ATTACH_FILES) {
+    throw new Error(`Too many attachments. Max allowed is ${MAX_ATTACH_FILES}`);
+  }
+
+  const validIds = attachments
+    .map(a => a.id)
+    .filter(id => typeof id === 'string' && id.match(/^[0-9a-fA-F]{24}$/));
+
+  if (validIds.length === 0) {
+    return { contextBlock: '', meta: [], totalBytes: 0 };
+  }
+
+  const files = await File.find({ _id: { $in: validIds }, isDeleted: { $ne: true } })
+    .populate('project', 'name owner collaborators');
+
+  // Verify ownership/access, project consistency, and collect content
+  let totalBytes = 0;
+  const meta = [];
+  const chunks = [];
+
+  for (const file of files) {
+    if (file.type !== 'file') {
+      continue; // skip folders
+    }
+
+    // Check project match if provided
+    if (projectId && file.project && file.project._id && file.project._id.toString() !== projectId) {
+      throw new Error('One or more files do not belong to the specified project');
+    }
+
+    // Permission check
+    const userRole = file.project.getUserRole(user._id);
+    if (!file.canRead(user._id, userRole)) {
+      throw new Error('Not authorized to read one or more attached files');
+    }
+
+    // Skip non-text-like files for context safety
+    if (!isTextLike(file)) {
+      meta.push({ fileId: file._id.toString(), name: file.name, size: file.size, language: file.language, skipped: true, reason: 'unsupported_type' });
+      continue;
+    }
+
+    // Optional: respect future line ranges (MVP: full content)
+    let content = file.content || '';
+
+    // Per-file bounding
+    const bounded = createBoundedPreview(content, Math.min(MAX_PER_FILE_BYTES, MAX_ATTACH_BYTES));
+    const encoder = new TextEncoder();
+    const boundedBytes = encoder.encode(bounded).byteLength;
+
+    // Check overall budget
+    if (totalBytes + boundedBytes > MAX_ATTACH_BYTES) {
+      const remaining = Math.max(0, MAX_ATTACH_BYTES - totalBytes);
+      if (remaining === 0) break;
+      const furtherBounded = createBoundedPreview(content, remaining);
+      const finalBytes = encoder.encode(furtherBounded).byteLength;
+      chunks.push(`\n===== BEGIN FILE: ${file.name} (${file.language || file.mimeType || 'text'}) =====\n${furtherBounded}\n===== END FILE: ${file.name} =====\n`);
+      meta.push({ fileId: file._id.toString(), name: file.name, size: file.size, language: file.language, truncated: true });
+      totalBytes += finalBytes;
+      break;
+    } else {
+      const truncated = bounded !== content;
+      chunks.push(`\n===== BEGIN FILE: ${file.name} (${file.language || file.mimeType || 'text'}) =====\n${bounded}\n===== END FILE: ${file.name} =====\n`);
+      meta.push({ fileId: file._id.toString(), name: file.name, size: file.size, language: file.language, truncated });
+      totalBytes += boundedBytes;
+    }
+  }
+
+  const contextBlock = chunks.join('\n');
+  return { contextBlock, meta, totalBytes };
+}
 
 // Rate limiting for chatbot endpoints
 const chatbotRateLimit = rateLimit({
@@ -35,7 +179,7 @@ router.use(chatbotRateLimit);
  */
 router.post('/query', protect, async (req, res) => {
   try {
-    const { query, sessionId, projectId, context = {} } = req.body;
+    const { query, sessionId, projectId, context = {}, attachments } = req.body;
     const userId = req.user.id;
 
     // Validate input
@@ -53,6 +197,18 @@ router.post('/query', protect, async (req, res) => {
       });
     }
 
+    // Hydrate attachment files into context (if any)
+    let attachContextBlock = '';
+    let attachmentMeta = [];
+    try {
+      const { contextBlock, meta } = await buildAttachmentsContext(req.user, projectId, attachments);
+      attachContextBlock = contextBlock;
+      attachmentMeta = meta;
+    } catch (attachErr) {
+      logger.warn('Attachment processing error:', attachErr);
+      return res.status(400).json({ success: false, error: attachErr.message || 'Invalid attachments' });
+    }
+
     // Get or create chat session
     let chatSession;
     if (sessionId) {
@@ -67,10 +223,11 @@ router.post('/query', protect, async (req, res) => {
       chatSession = await ChatSession.createSession(userId, projectId);
     }
 
-    // Add user message to session
+    // Add user message to session (include attachments metadata)
     await chatSession.addMessage('user', query, {
       timestamp: new Date(),
-      context: context
+      context: context,
+      attachments: attachmentMeta
     });
 
     // Analyze error if present
@@ -85,13 +242,15 @@ router.post('/query', protect, async (req, res) => {
       });
     }
 
-    // Prepare context for Gemini
+    // Prepare context for Gemini (include attachments block)
     const geminiContext = {
       ...context,
       ...errorAnalysis?.context,
       errorType: errorAnalysis?.errorType,
       suggestions: errorAnalysis?.suggestions,
-      conversationHistory: chatSession.getRecentMessages(5)
+      conversationHistory: chatSession.getRecentMessages(5),
+      fileContent: attachContextBlock,
+      attachedFiles: attachmentMeta
     };
 
     // Generate AI response
@@ -106,7 +265,8 @@ router.post('/query', protect, async (req, res) => {
       responseMetadata = {
         ...aiResponse.metadata,
         errorAnalysis: errorAnalysis,
-        confidence: 'high'
+        confidence: 'high',
+        attachments: attachmentMeta
       };
       
       // Process the AI response for better formatting
@@ -120,7 +280,8 @@ router.post('/query', protect, async (req, res) => {
       responseMetadata = {
         error: aiResponse.error,
         confidence: 'low',
-        fallback: true
+        fallback: true,
+        attachments: attachmentMeta
       };
       
       // Process fallback response as well
@@ -151,7 +312,8 @@ router.post('/query', protect, async (req, res) => {
         suggestions: [...(errorAnalysis?.suggestions || []), ...(processedResponse.suggestions || [])],
         links: processedResponse.links || [],
         errorType: errorAnalysis?.errorType,
-        severity: errorAnalysis?.severity
+        severity: errorAnalysis?.severity,
+        attachments: attachmentMeta
       }
     });
 

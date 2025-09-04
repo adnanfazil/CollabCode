@@ -636,3 +636,118 @@ router.post('/test-broadcast/:projectId', protect, async (req, res) => {
 });
 
 module.exports = router;
+// @desc    Get file content (optional line range) with byte-size cap
+// @route   GET /api/files/:id/content
+// @access  Private
+router.get('/:id/content', protect, [
+  param('id').isMongoId().withMessage('Invalid file ID'),
+  query('startLine').optional().toInt().isInt({ min: 1 }).withMessage('startLine must be >= 1'),
+  query('endLine').optional().toInt().isInt({ min: 1 }).withMessage('endLine must be >= 1'),
+  query('maxBytes').optional().toInt().isInt({ min: 1, max: 1048576 }).withMessage('maxBytes must be between 1 and 1048576')
+], handleValidationErrors, async (req, res, next) => {
+  try {
+    const file = await File.findById(req.params.id)
+      .populate('project', 'name owner collaborators')
+      .populate('metadata.lastEditedBy', 'name email');
+
+    if (!file) {
+      return next(new AppError('File not found', 404));
+    }
+
+    if (file.isDeleted) {
+      return next(new AppError('File has been deleted', 404));
+    }
+
+    // Permission check
+    const userRole = file.project.getUserRole(req.user._id);
+    if (!file.canRead(req.user._id, userRole)) {
+      return next(new AppError('Not authorized to view this file', 403));
+    }
+
+    if (file.type !== 'file') {
+      return next(new AppError('Cannot retrieve content for folders', 400));
+    }
+
+    // Only support utf8 textual content in this endpoint
+    if (file.encoding && file.encoding !== 'utf8') {
+      return next(new AppError('File encoding not supported for text retrieval', 415));
+    }
+
+    const fullContent = typeof file.content === 'string' ? file.content : '';
+    const lines = fullContent.split(/\r?\n/);
+    const totalLines = lines.length;
+
+    // Determine line range (1-indexed inclusive)
+    const start = req.query.startLine ? Math.min(Math.max(1, req.query.startLine), totalLines) : 1;
+    const end = req.query.endLine ? Math.min(Math.max(start, req.query.endLine), totalLines) : totalLines;
+
+    let contentSlice = lines.slice(start - 1, end).join('\n');
+
+    // Enforce byte-size cap with a sensible default of 200KB
+    const MAX_ABSOLUTE_BYTES = 1048576; // 1MB hard cap per query param validation
+    const defaultCap = 200 * 1024; // 200KB default
+    const maxBytes = req.query.maxBytes ? Math.min(MAX_ABSOLUTE_BYTES, req.query.maxBytes) : defaultCap;
+
+    const encoder = new TextEncoder();
+    let buffer = encoder.encode(contentSlice);
+    let truncated = false;
+
+    if (buffer.byteLength > maxBytes) {
+      truncated = true;
+      // Create head+tail preview within budget
+      const budget = maxBytes;
+      // Reserve space for truncation marker
+      const marker = `\n... [truncated to ${budget} bytes] ...\n`;
+      const markerBytes = encoder.encode(marker).byteLength;
+      const halfBudget = Math.max(0, Math.floor((budget - markerBytes) / 2));
+
+      // Approximate by character counts (utf8 safe enough for ASCII code files)
+      const headChars = Math.max(0, Math.min(contentSlice.length, halfBudget));
+      const tailChars = Math.max(0, Math.min(contentSlice.length - headChars, halfBudget));
+      const head = contentSlice.slice(0, headChars);
+      const tail = contentSlice.slice(contentSlice.length - tailChars);
+
+      contentSlice = `${head}${marker}${tail}`;
+      buffer = encoder.encode(contentSlice);
+
+      // If still somehow too large due to multibyte, hard trim
+      if (buffer.byteLength > budget) {
+        // Trim to exact budget in bytes
+        let low = 0;
+        let high = contentSlice.length;
+        let best = '';
+        while (low <= high) {
+          const mid = Math.floor((low + high) / 2);
+          const candidate = contentSlice.slice(0, mid);
+          const size = encoder.encode(candidate).byteLength;
+          if (size <= budget) {
+            best = candidate;
+            low = mid + 1;
+          } else {
+            high = mid - 1;
+          }
+        }
+        contentSlice = best;
+      }
+    }
+
+    res.status(200).json({
+      success: true,
+      data: {
+        fileId: file._id,
+        name: file.name,
+        language: file.language,
+        size: file.size,
+        totalLines,
+        startLine: start,
+        endLine: end,
+        truncated,
+        content: contentSlice,
+        updatedAt: file.updatedAt
+      }
+    });
+  } catch (error) {
+    logger.error('Get file content error:', error);
+    next(error);
+  }
+});
